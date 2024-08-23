@@ -92,7 +92,12 @@ loginForm.addEventListener("submit", (e) => {
               "hidden"
             );
 
-            otpContainer.firstElementChild.focus();
+            otpInputs.forEach((input, index)=> {
+              input.value = '';
+              if(index === 0){
+                input.focus()
+              }
+            })
           });
         } else {
           return response.json().then((errorData) => {
