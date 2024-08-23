@@ -8,6 +8,7 @@ const phoneContainer = $.getElementById("phone-container");
 const otpContainer = $.getElementById("otp-container");
 const otpInputs = $.querySelectorAll(".otp-input-box");
 const submitButton = $.getElementById("submit-btn");
+const backButton = $.getElementById('back-btn');
 
 // Function to convert Persian digits to English digits
 function convertPersianToEnglish(input) {
@@ -34,9 +35,14 @@ otpInputs.forEach((input) => {
   });
 });
 
+let phoneForm = true;
+
 // submit login form
-loginForm.addEventListener("submit", () => {
-  alert('d')
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if(phoneForm){
+
+
   const phoneRegex =
     /^(0|98)?([ ]|-|[()]){0,2}9[0-4|9]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}$/;
 
@@ -62,6 +68,7 @@ loginForm.addEventListener("submit", () => {
       .then((response) => {
         if (response.ok) {
           response.json().then((data) => {
+            phoneForm = false;
             Toastify({
               text: `کد تائید: ${data.verifyCode}`,
               duration: 3000,
@@ -77,18 +84,12 @@ loginForm.addEventListener("submit", () => {
 
             // Hide phone input with animation
             phoneContainer.classList.add(
-              "translate-y-8",
-              "opacity-0",
-              "pointer-events-none",
-              "absolute"
+              "hidden"
             );
 
             // Show OTP input with animation
             otpContainer.classList.remove(
-              "translate-y-8",
-              "opacity-0",
-              "pointer-events-none",
-              "absolute"
+              "hidden"
             );
 
             otpContainer.firstElementChild.focus();
@@ -106,6 +107,7 @@ loginForm.addEventListener("submit", () => {
         phoneError.textContent = error;
       });
   }
+}
 });
 
 otpInputs.forEach((input, index) => {
@@ -124,10 +126,16 @@ otpInputs.forEach((input, index) => {
   input.addEventListener("keydown", (e) => {
     const currentInput = e.target;
 
-    if (e.key === "Backspace" && !currentInput.value) {
-      if (currentInput.previousElementSibling) {
+    if (e.key === "Backspace") {
+      if (!currentInput.value && currentInput.previousElementSibling) {
         currentInput.previousElementSibling.focus();
-        currentInput.previousElementSibling.value = "";
+      }
+      // If the current input is not empty, clear its value
+      if (currentInput.value) {
+        currentInput.value = "";
+        if (currentInput.previousElementSibling) {
+          currentInput.previousElementSibling.focus();
+        }
       }
     }
 
@@ -139,6 +147,7 @@ otpInputs.forEach((input, index) => {
       e.preventDefault();
       currentInput.previousElementSibling.focus();
     }
+    // checkInputs();
   });
 
   input.addEventListener("focus", (e) => {
@@ -230,3 +239,20 @@ submitButton.addEventListener("click", () => {
 });
 
 
+backButton.addEventListener('click', (e)=>{
+  e.preventDefault();
+  phoneForm = true;
+            submitButton.classList.add("hidden");
+            loginButton.classList.remove('hidden');
+
+            // Show Phone input with animation
+            phoneContainer.classList.remove(
+              "hidden"
+            );
+
+            // Hide OTP input with animation
+
+            otpContainer.classList.add(
+              "hidden"
+            );
+})

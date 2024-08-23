@@ -41,6 +41,10 @@
     font-style: normal;
   }
 
+  input {
+    user-select: none !important
+  }
+
   h1 {
     @apply text-4xl font-bold text-gray-800;
   }
