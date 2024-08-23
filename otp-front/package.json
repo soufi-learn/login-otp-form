@@ -1,0 +1,12 @@
+{
+  "name": "otp-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postcss.config.js",
+  "scripts": {
+    "watch:css": "npx tailwindcss -i ./src/css/global.css -o ./src/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

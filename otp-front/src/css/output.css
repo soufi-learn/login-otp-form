@@ -667,10 +667,6 @@ h6 {
   position: absolute;
 }
 
-.relative {
-  position: relative;
-}
-
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -685,12 +681,12 @@ h6 {
   margin-bottom: 0.75rem;
 }
 
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .block {
@@ -765,11 +761,6 @@ h6 {
 .bg-indigo-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(79 70 229 / var(--tw-bg-opacity));
-}
-
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 
 .bg-slate-100 {

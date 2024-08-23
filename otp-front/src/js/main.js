@@ -35,7 +35,8 @@ otpInputs.forEach((input) => {
 });
 
 // submit login form
-loginButton.addEventListener("click", () => {
+loginForm.addEventListener("submit", () => {
+  alert('d')
   const phoneRegex =
     /^(0|98)?([ ]|-|[()]){0,2}9[0-4|9]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}$/;
 
