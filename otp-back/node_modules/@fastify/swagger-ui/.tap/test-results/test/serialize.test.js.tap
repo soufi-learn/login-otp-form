@@ -1,0 +1,108 @@
+TAP version 14
+# Subtest: serialize
+    1..8
+    # Subtest: boolean
+        1..2
+        ok 1 - should be equal
+        ok 2 - should be equal
+    ok 1 - boolean # time=1.454ms
+    
+    # Subtest: number
+        1..7
+        ok 1 - should be equal
+        ok 2 - should be equal
+        ok 3 - should be equal
+        ok 4 - should be equal
+        ok 5 - should be equal
+        ok 6 - should be equal
+        ok 7 - should be equal
+    ok 2 - number # time=0.608ms
+    
+    # Subtest: string
+        1..3
+        ok 1 - should be equal
+        ok 2 - should be equal
+        ok 3 - should be equal
+    ok 3 - string # time=0.355ms
+    
+    # Subtest: bigint
+        1..3
+        ok 1 - should be equal
+        ok 2 - should be equal
+        ok 3 - should be equal
+    ok 4 - bigint # time=0.347ms
+    
+    # Subtest: function
+        1..7
+        ok 1 - should be equal
+        ok 2 - should be equal
+        ok 3 - should be equal
+        ok 4 - should be equal
+        ok 5 - should be equal
+        ok 6 - should be equal
+        ok 7 - should be equal
+    ok 5 - function # time=0.592ms
+    
+    # Subtest: undefined
+        1..1
+        ok 1 - should be equal
+    ok 6 - undefined # time=0.243ms
+    
+    # Subtest: symbol
+        1..2
+        ok 1 - should be equal
+        ok 2 - should be equal
+    ok 7 - symbol # time=0.401ms
+    
+    # Subtest: object
+        1..7
+        # Subtest: null
+            1..1
+            ok 1 - should be equal
+        ok 1 - null # time=0.252ms
+        
+        # Subtest: RegExp
+            1..1
+            ok 1 - should be equal
+        ok 2 - RegExp # time=0.339ms
+        
+        # Subtest: Date
+            1..1
+            ok 1 - should be equal
+        ok 3 - Date # time=5.243ms
+        
+        # Subtest: Array
+            1..5
+            ok 1 - should be equal
+            ok 2 - should be equal
+            ok 3 - should be equal
+            ok 4 - should be equal
+            ok 5 - should be equal
+        ok 4 - Array # time=0.607ms
+        
+        # Subtest: POJO
+            1..3
+            ok 1 - should be equal
+            ok 2 - should be equal
+            ok 3 - should be equal
+        ok 5 - POJO # time=0.358ms
+        
+        # Subtest: Set
+            1..3
+            ok 1 - should be equal
+            ok 2 - should be equal
+            ok 3 - should be equal
+        ok 6 - Set # time=0.331ms
+        
+        # Subtest: Map
+            1..3
+            ok 1 - should be equal
+            ok 2 - should be equal
+            ok 3 - should be equal
+        ok 7 - Map # time=0.461ms
+        
+    ok 8 - object # time=11.107ms
+    
+ok 1 - serialize # time=23.146ms
+
+1..1

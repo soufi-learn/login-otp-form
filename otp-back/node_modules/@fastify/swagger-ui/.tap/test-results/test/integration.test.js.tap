@@ -1,0 +1,7 @@
+TAP version 14
+# Subtest: fastify will response swagger csp
+    1..1
+    ok 1 - should be equivalent
+ok 1 - fastify will response swagger csp # time=43.138ms
+
+1..1

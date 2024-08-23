@@ -1,0 +1,14 @@
+TAP version 14
+# Subtest: Swagger source does not contain sourceMaps
+    1..2
+    ok 1 - should be equal
+    ok 2 - should be equal
+ok 1 - Swagger source does not contain sourceMaps # time=45.21ms
+
+# Subtest: Swagger css does not contain sourceMaps
+    1..2
+    ok 1 - should be equal
+    ok 2 - should be equal
+ok 2 - Swagger css does not contain sourceMaps # time=15.248ms
+
+1..2

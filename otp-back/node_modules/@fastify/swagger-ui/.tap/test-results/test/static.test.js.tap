@@ -1,0 +1,95 @@
+TAP version 14
+# Subtest: swagger route returns yaml
+    1..3
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - valid swagger yaml
+ok 1 - swagger route returns yaml # time=61.246ms
+
+# Subtest: swagger route returns json
+    1..3
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - valid swagger json
+ok 2 - swagger route returns json # time=17.207ms
+
+# Subtest: postProcessor works, swagger route returns updated yaml
+    1..4
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - must match snapshot
+    ok 4 - valid swagger yaml
+ok 3 - postProcessor works, swagger route returns updated yaml # time=17.301ms
+
+# Subtest: swagger route returns explicitly passed doc
+    1..2
+    ok 1 - must match snapshot
+    ok 2 - valid explicitly passed spec document
+ok 4 - swagger route returns explicitly passed doc # time=1.628ms
+
+# Subtest: /documentation/:file should serve static file from the location of main specification file
+    1..4
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - should be equal
+    ok 4 - should be equal
+ok 5 - /documentation/:file should serve static file from the location of main specification file # time=28.144ms
+
+# Subtest: /documentation/non-existing-file calls custom NotFoundHandler
+    1..1
+    ok 1 - should be equal
+ok 6 - /documentation/non-existing-file calls custom NotFoundHandler # time=4.864ms
+
+# Subtest: /documentation/:file should be served from custom location
+    1..2
+    ok 1 - should be equal
+    ok 2 - should be equal
+ok 7 - /documentation/:file should be served from custom location # time=11.384ms
+
+# Subtest: /documentation/:file should be served from custom location with trailing slash(es)
+    1..2
+    ok 1 - should be equal
+    ok 2 - should be equal
+ok 8 - /documentation/:file should be served from custom location with trailing slash(es) # time=14.473ms
+
+# Subtest: /documentation/yaml returns cache.swaggerString on second request in static mode
+    1..6
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - valid swagger yaml
+    ok 4 - should be equal
+    ok 5 - should be equal
+    ok 6 - valid swagger yaml
+ok 9 - /documentation/yaml returns cache.swaggerString on second request in static mode # time=17.006ms
+
+# Subtest: /documentation/json returns cache.swaggerObject on second request in static mode
+    1..6
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - valid swagger json
+    ok 4 - should be equal
+    ok 5 - should be equal
+    ok 6 - valid swagger json
+ok 10 - /documentation/json returns cache.swaggerObject on second request in static mode # time=8.351ms
+
+# Subtest: /documentation/yaml returns cache.swaggerString on second request in dynamic mode
+    1..6
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - valid swagger yaml
+    ok 4 - should be equal
+    ok 5 - should be equal
+    ok 6 - valid swagger yaml
+ok 11 - /documentation/yaml returns cache.swaggerString on second request in dynamic mode # time=17.962ms
+
+# Subtest: /documentation/json returns cache.swaggerObject on second request in dynamic mode
+    1..6
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - valid swagger json
+    ok 4 - should be equal
+    ok 5 - should be equal
+    ok 6 - valid swagger json
+ok 12 - /documentation/json returns cache.swaggerObject on second request in dynamic mode # time=14.765ms
+
+1..12

@@ -1,0 +1,31 @@
+TAP version 14
+# Subtest: hooks on static swagger
+    ok 1 - root auth required
+    ok 2 - auth required yaml
+    ok 3 - should be equal
+    ok 4 - should be equal
+    ok 5 - valid swagger yaml
+    ok 6 - auth required json
+    ok 7 - should be equal
+    ok 8 - should be equal
+    ok 9 - valid swagger json
+    1..9
+ok 1 - hooks on static swagger # time=60.329ms
+
+# Subtest: hooks on dynamic swagger
+    ok 1 - root auth required
+    ok 2 - auth required yaml
+    ok 3 - auth required json
+    ok 4 - should be equal
+    ok 5 - should be equal
+    ok 6 - should be equal
+    ok 7 - should be equal
+    1..7
+ok 2 - hooks on dynamic swagger # time=59.917ms
+
+# Subtest: catch all added schema
+    ok 1 - should be equivalent
+    1..1
+ok 3 - catch all added schema # time=11.085ms
+
+1..3

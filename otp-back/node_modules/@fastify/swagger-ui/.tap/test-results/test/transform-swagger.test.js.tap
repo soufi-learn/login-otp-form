@@ -1,0 +1,35 @@
+TAP version 14
+# Subtest: transformSpecification should modify the json
+    1..5
+    ok 1 - should not be equal
+    ok 2 - should be equal
+    ok 3 - should be equal
+    ok 4 - should not be equivalent
+    ok 5 - should be equal
+ok 1 - transformSpecification should modify the json # time=42.934ms
+
+# Subtest: transformSpecificationClone false should not deepclone fastify.swagger() /1
+    1..4
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - should be equal
+    ok 4 - should be equivalent strictly
+ok 2 - transformSpecificationClone false should not deepclone fastify.swagger() /1 # time=5.208ms
+
+# Subtest: transformSpecification should modify the yaml
+    1..4
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - should be equivalent
+    ok 4 - should be equal
+ok 3 - transformSpecification should modify the yaml # time=11.914ms
+
+# Subtest: transformSpecificationClone false should not deepclone fastify.swagger() /2
+    1..4
+    ok 1 - should be equal
+    ok 2 - should be equal
+    ok 3 - should be equal
+    ok 4 - should be equivalent
+ok 4 - transformSpecificationClone false should not deepclone fastify.swagger() /2 # time=4.915ms
+
+1..4

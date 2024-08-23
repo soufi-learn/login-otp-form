@@ -1,0 +1,27 @@
+### GET ALL USERS ROUTE
+GET http://localhost:8080/users HTTP/1/1
+
+### GET ONE USER
+GET http://localhost:8080/users/591ec00e-fbe0-4d3c-b43f-f728c3472368 HTTP/1/1
+
+### CREATE NEW USER
+POST http://localhost:8080/users HTTP/1/1
+Content-Type: application/json
+
+{
+    "name" : "soufi",
+    "email" : "soufi@gmail.com" 
+}
+
+### UPDATE ONE USER 
+PUT http://localhost:8080/users/591ec00e-fbe0-4d3c-b43f-f728c3472368 HTTP/1/1
+Content-Type: application/json
+
+{
+    "name" : "soheil",
+    "email" : "soheil@gmail.com" 
+}
+
+### DELETE ONE USER
+DELETE http://localhost:8080/users/2c672930-6ac0-42a2-9a42-ddc01faf65f8 HTTP/1/1
+Content-Type: application/json

@@ -1,0 +1,16 @@
+### SEND PHONE NUMBER AND GET OTP CODE
+POST http://localhost:8080/otp/send HTTP/1/1
+Content-Type: application/json
+
+{
+    "phone" : "09109336202"
+}
+
+### VERIFY OTP CODE
+POST http://localhost:8080/otp/verify HTTP/1/1
+Content-Type: application/json
+
+{
+    "phone" : "09109336202",
+    "verifyCode" : "946796"
+}
