@@ -9,7 +9,7 @@ module.exports = {
     mode: "development",
     // entry file 
     entry: {
-        main: "/src/js/main.js"
+        main: "./src/js/main.js"
     },
     // output file
     output: {
@@ -23,17 +23,17 @@ module.exports = {
             directory: path.resolve(__dirname, "./src/pages"),
         },
         compress: false,
-        open: true,
+        open: false,
         port: 4000,
     },
     // plugins
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "styles/[name]-[contenthash].css" // go in to the and create file dist/styles/main.css and hash file
+            filename: "styles/[name]-[contenthash].css"
         }),
         new HtmlWebpackPlugin(
             {
-                template: "/src/pages",
+                template: "./src/pages/index.html",
                 minify: true,
                 filename: "index.html",
                 chunks: ["main"]
