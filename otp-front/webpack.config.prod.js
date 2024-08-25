@@ -1,7 +1,9 @@
+require("dotenv").config();
 const path = require("node:path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
     // mode 
@@ -19,6 +21,10 @@ module.exports = {
     },
     // plugins
     plugins: [
+        // bind env vars
+        new webpack.DefinePlugin({
+            "process.env.baseUrl": process.env.baseUrl
+        }),
         // css modules
         new MiniCssExtractPlugin({
             filename: "styles/[name]-[contenthash].css"
