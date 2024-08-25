@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "postcss.config.js",
   "scripts": {
-    "watch:css": "npx tailwindcss -i ./src/css/global.css -o ./src/css/output.css --watch"
+    "dev": "webpack serve --config webpack.config.dev.js",
+    "build:dev": "webpack --config webpack.config.dev.js",
+    "build:prod": "webpack --config webpack.config.prod.js",
+    "tailwind": "npx tailwindcss -i ./src/css/tailwind.css -o ./src/css/main.css --watch"
   },
   "keywords": [],
   "author": "",
