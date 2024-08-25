@@ -1,7 +1,7 @@
 // css files
-import "toastify-js/src/toastify.css"
-import "../css/main.css"
-import Toastify from "toastify-js"
+import "toastify-js/src/toastify.css";
+import "../css/main.css";
+import Toastify from "toastify-js";
 
 // DOM selectors
 const $ = document;
@@ -14,7 +14,7 @@ const phoneContainer = $.getElementById("phone-container");
 const otpContainer = $.getElementById("otp-container");
 const otpInputs = $.querySelectorAll(".otp-input-box");
 const submitButton = $.getElementById("submit-btn");
-const backButton = $.getElementById('back-btn');
+const backButton = $.getElementById("back-btn");
 
 // back end base url
 const backendBaseUrl = process.env.baseUrl;
@@ -50,8 +50,6 @@ let phoneForm = true;
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (phoneForm) {
-
-
     const phoneRegex =
       /^(0|98)?([ ]|-|[()]){0,2}9[0-4|9]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}$/;
 
@@ -92,21 +90,17 @@ loginForm.addEventListener("submit", (e) => {
               submitButton.classList.remove("hidden");
 
               // Hide phone input with animation
-              phoneContainer.classList.add(
-                "hidden"
-              );
+              phoneContainer.classList.add("hidden");
 
               // Show OTP input with animation
-              otpContainer.classList.remove(
-                "hidden"
-              );
+              otpContainer.classList.remove("hidden");
 
               otpInputs.forEach((input, index) => {
-                input.value = '';
+                input.value = "";
                 if (index === 0) {
-                  input.focus()
+                  input.focus();
                 }
-              })
+              });
             });
           } else {
             return response.json().then((errorData) => {
@@ -161,7 +155,6 @@ otpInputs.forEach((input, index) => {
       e.preventDefault();
       currentInput.previousElementSibling.focus();
     }
-    // checkInputs();
   });
 
   input.addEventListener("focus", (e) => {
@@ -252,21 +245,22 @@ submitButton.addEventListener("click", () => {
   }
 });
 
-
-backButton.addEventListener('click', (e) => {
+backButton.addEventListener("click", (e) => {
   e.preventDefault();
   phoneForm = true;
   submitButton.classList.add("hidden");
-  loginButton.classList.remove('hidden');
+  loginButton.classList.remove("hidden");
 
   // Show Phone input with animation
-  phoneContainer.classList.remove(
-    "hidden"
-  );
+  phoneContainer.classList.remove("hidden");
 
   // Hide OTP input with animation
 
-  otpContainer.classList.add(
-    "hidden"
-  );
-})
+  otpContainer.classList.add("hidden");
+
+  // clear inputs & desable login button
+  otpInputs.forEach((input) => {
+    input.value = "";
+    checkInputs();
+  })
+});
