@@ -11,7 +11,7 @@ const sendCode = async (req, rep) => {
     await otpModel.insertOne(newOtp);
     return rep.code(201).send({
       url: req.originalUrl,
-      message: "Otp Code Send Successfully",
+      message: "کد تایید با موفقعیت ارسال شد",
       verifyCode: String(randomNumber),
       status: 201,
     });
@@ -32,7 +32,7 @@ const verifyCode = (req, rep) => {
   if (!mainOtp) {
     return rep.code(409).send({
       url: req.originalUrl,
-      message: "Otp Code Is Not Correct",
+      message: "کد تایید وارد شده معتبر نمیباشد",
       status: 409,
     });
   }
@@ -42,13 +42,13 @@ const verifyCode = (req, rep) => {
   if (mainOtp.expireTime > now) {
     return rep.send({
       url: req.originalUrl,
-      message: "Phone Number Verify Successfully",
+      message: "شماره تماس با موفقعیت تایید شد",
       status: 200,
     });
   } else {
     return rep
       .code(410)
-      .send({ url: req.originalUrl, message: "Otp Code Expired", status: 410 });
+      .send({ url: req.originalUrl, message: "کد تایید منقضی شده است", status: 410 });
   }
 };
 
