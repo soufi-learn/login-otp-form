@@ -23,14 +23,16 @@ module.exports = {
             directory: path.resolve(__dirname, "./src/pages"),
         },
         compress: false,
-        open: false,
+        open: true,
         port: 4000,
     },
     // plugins
     plugins: [
+        // css modules
         new MiniCssExtractPlugin({
             filename: "styles/[name]-[contenthash].css"
         }),
+        // pages
         new HtmlWebpackPlugin(
             {
                 template: "./src/pages/index.html",
@@ -76,7 +78,7 @@ module.exports = {
 
     // optimization
     optimization: {
-        minimize: true,
+        minimize: false,
         minimizer: [
             new TerserWebpackPlugin(),
         ],
