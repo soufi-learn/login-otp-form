@@ -16,6 +16,10 @@ const otpInputs = $.querySelectorAll(".otp-input-box");
 const submitButton = $.getElementById("submit-btn");
 const backButton = $.getElementById('back-btn');
 
+// back end base url
+const backendBaseUrl = "http://localhost:8080";
+
+
 // Function to convert Persian digits to English digits
 function convertPersianToEnglish(input) {
   const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
@@ -62,7 +66,7 @@ loginForm.addEventListener("submit", (e) => {
     } else if (!isValidPhone) {
       phoneError.textContent = "لطفا یک شماره موبایل معتبر وارد کنید.";
     } else {
-      fetch("http://localhost:4000/otp/send", {
+      fetch(`${backendBaseUrl}/otp/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -208,7 +212,7 @@ submitButton.addEventListener("click", () => {
       .map((input) => input.value)
       .join("");
 
-    fetch("http://localhost:4000/otp/verify", {
+    fetch(`${backendBaseUrl}/otp/verify`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
