@@ -1,7 +1,10 @@
+require("dotenv").config();
 const path = require("node:path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
+const webpack = require("webpack");
+
 
 // create MPA with webpack
 module.exports = {
@@ -24,10 +27,14 @@ module.exports = {
         },
         compress: false,
         open: true,
-        port: 4000,
+        port: process.env.frontPort || 8081,
     },
     // plugins
     plugins: [
+        // bind env vars
+        new webpack.DefinePlugin({
+            "process.env.baseUrl": JSON.stringify(process.env.baseUrl),
+        }),
         // css modules
         new MiniCssExtractPlugin({
             filename: "styles/[name]-[contenthash].css"

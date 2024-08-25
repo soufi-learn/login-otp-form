@@ -17,8 +17,7 @@ const submitButton = $.getElementById("submit-btn");
 const backButton = $.getElementById('back-btn');
 
 // back end base url
-const backendBaseUrl = "http://localhost:8080";
-
+const backendBaseUrl = process.env.baseUrl;
 
 // Function to convert Persian digits to English digits
 function convertPersianToEnglish(input) {
