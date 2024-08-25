@@ -39,7 +39,7 @@ bower_components
 build/Release
 
 # Dependency directories
-otp-back/node_modules/
+node_modules/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -170,3 +170,35 @@ out.tap
 test/https/fastify.cert
 test/https/fastify.key
 /test/types/import.js
+
+
+# Node modules  
+node_modules/  
+otp-front/node_modules/  
+otp-back/node_modules/  
+
+# Build output  
+otp-front/dist/  
+otp-front/build/  
+otp-back/dist/  
+otp-back/build/  
+
+# Logs 
+*.log  
+otp-front/logs/  
+otp-back/logs/  
+
+# Environment variables  
+.env  
+otp-front/.env  
+otp-back/.env  
+
+# IDE specific files  
+.vscode/  
+.idea/  
+*.sublime-project  
+*.sublime-workspace  
+
+# OS generated files  
+.DS_Store  
+Thumbs.db
