@@ -102,8 +102,8 @@ loginForm.addEventListener("submit", (e) => {
                 }
               });
 
-              // start expire timer coutdown
-              setInterval(countdown, 1000);
+              // Start expire timer countdown
+              startCountdown();
             });
           } else {
             return response.json().then((errorData) => {
@@ -268,26 +268,95 @@ backButton.addEventListener("click", (e) => {
   });
 });
 
-// expire time 02:30
+// Initial expire time (02:30)
 let expireTimeInSeconds = 2 * 60 + 30;
+let countdownInterval;
 
 const expireTimerContainer = document.getElementById("expire-timer-container");
 
-const countdown = () => {
-  const minutes = Math.floor(expireTimeInSeconds / 60);
-  const seconds = expireTimeInSeconds % 60;
+// Countdown function for expire timer
+function startCountdown() {
+  clearInterval(countdownInterval); // Clear any previous intervals
+  let expireTimeInSeconds = 2 * 60 + 30; // Reset the countdown time if needed
 
-  expireTimerContainer.innerHTML = ` <span class="text-slate-600"
-                ><span class="text-slate-800" id="expire-timer">${
-                  minutes < 10 ? "0" : ""
-                }${minutes}:${seconds < 10 ? "0" : ""}${seconds}</span>
-                مانده تا ارسال مجدد</span
-              >`;
+  countdownInterval = setInterval(() => {
+    const minutes = Math.floor(expireTimeInSeconds / 60);
+    const seconds = expireTimeInSeconds % 60;
 
-  if (expireTimeInSeconds <= 0) {
-    clearInterval(countdown);
-    expireTimerContainer.innerHTML = `<button>ارسال مجدد کد تائید</button>`;
-  }
+    expireTimerContainer.innerHTML = `<span class="text-slate-600"><span class="text-slate-800" id="expire-timer">${
+      minutes < 10 ? "0" : ""
+    }${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}</span> مانده تا ارسال مجدد</span>`;
 
-  expireTimeInSeconds--;
-};
+    if (expireTimeInSeconds <= 0) {
+      clearInterval(countdownInterval); // Stop the countdown when time runs out
+      expireTimerContainer.innerHTML = `<button id='resend-btn'>ارسال مجدد کد تائید</button>`;
+      const resendButton = document.getElementById("resend-btn");
+      resendButton.addEventListener("click", resendCode);
+    }
+
+    expireTimeInSeconds--;
+  }, 1000);
+}
+
+// Function to resend the OTP code
+function resendCode() {
+  fetch(`${backendBaseUrl}/otp/send`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      phone: phoneInput.value,
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          phoneForm = false;
+          Toastify({
+            text: `کد تائید: ${data.verifyCode}`,
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+          }).showToast();
+
+          phoneAlert.textContent = `کد تایید برای شماره ${phoneInput.value} پیامک شد`;
+          loginButton.classList.add("hidden");
+          submitButton.classList.remove("hidden");
+
+          // Hide phone input with animation
+          phoneContainer.classList.add("hidden");
+
+          // Show OTP input with animation
+          otpContainer.classList.remove("hidden");
+
+          otpInputs.forEach((input, index) => {
+            input.value = "";
+            if (index === 0) {
+              input.focus();
+            }
+          });
+
+          // Start expire timer countdown
+          startCountdown();
+        });
+      } else {
+        return response.json().then((errorData) => {
+          throw new Error(errorData.message || "An error occurred");
+        });
+      }
+    })
+    // when we encounter error in sending phone number to API
+    .catch((error) => {
+      console.log(error);
+      phoneError.classList.remove("hidden");
+      phoneError.textContent = error;
+    });
+
+  // Restart the countdown timer
+  startCountdown();
+}
