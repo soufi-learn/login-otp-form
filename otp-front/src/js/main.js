@@ -1,6 +1,7 @@
-// tailwind css file
+// css files
+import "toastify-js/src/toastify.css"
 import "../css/main.css"
-
+import Toastify from "toastify-js"
 
 // DOM selectors
 const $ = document;
