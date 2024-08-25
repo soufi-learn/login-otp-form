@@ -13,7 +13,7 @@ const sendOtpOptions = {
           pattern:
             "^(0|98)?([ ]|-|[()]){0,2}9[0-4|9]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}$",
           errorMessage: {
-            pattern: "Phone Number Not Valid",
+            pattern: "شماره تماس وارد شده معتبر نمیباشد",
           },
         },
       },
@@ -31,7 +31,7 @@ const sendOtpOptions = {
         examples: [
           {
             url: "/otp/send",
-            message: "Otp Code Send Successfully",
+            message: "کد تایید با موفقعیت ارسال شد",
             verifyCode: "111111",
             status: 201,
           },
@@ -40,10 +40,10 @@ const sendOtpOptions = {
       400: {
         $ref: "responseSchema#",
         examples: [
-          { url: "/otp/send", message: "Phone Number Not Valid", status: 400 },
+          { url: "/otp/send", message: "شماره تماس وارد شده معتبر نمیباشد", status: 400 },
           {
             url: "/otp/send",
-            message: "Phone Number Require Felid",
+            message: "وارد کرن شماره تماس الزامی میباشد",
             status: 400,
           },
         ],
@@ -81,7 +81,7 @@ const verifyOtpOptions = {
           pattern:
             "^(0|98)?([ ]|-|[()]){0,2}9[0-4|9]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}$",
           errorMessage: {
-            pattern: "Phone Number Not Valid",
+            pattern: "شماره تماس وارد شده معتبر نمیباشد",
           },
         },
         verifyCode: { type: "string", maxLength: 6 },
@@ -94,7 +94,7 @@ const verifyOtpOptions = {
         examples: [
           {
             url: "/otp/verify",
-            message: "Phone Number Verify Successfully",
+            message: "شماره تماس شما با موفقعیت تایید شد",
             status: 200,
           },
         ],
@@ -121,8 +121,8 @@ const verifyOtpOptions = {
             url: "/otp/verify",
             message: "Bad Request",
             errors: {
-              phone: "Phone Number Not Valid",
-              verifyCode: "VerifyCode Required",
+              phone: "شماره تماس وارد شده معتبر نمیباشد",
+              verifyCode: "کد تایید ارسال نشد",
             },
             status: 400,
           },
@@ -133,7 +133,7 @@ const verifyOtpOptions = {
         examples: [
           {
             url: "/otp/verify",
-            message: "Otp Code Is Not Correct",
+            message: "کد تایید نادرست میباشد",
             status: 409,
           },
         ],
@@ -141,7 +141,7 @@ const verifyOtpOptions = {
       410: {
         $ref: "responseSchema#",
         examples: [
-          { url: "/otp/verify", message: "Otp Code Expired", status: 410 },
+          { url: "/otp/verify", message: "کد تایید منقضی شده", status: 410 },
         ],
       },
       500: {
