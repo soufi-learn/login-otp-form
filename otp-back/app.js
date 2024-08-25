@@ -4,8 +4,7 @@ const usersRoutes = require("./routes/users/users.route");
 const { userSchema } = require("./schemas/user/user.schema");
 const { responseSchema } = require("./schemas/response/response.schema");
 const otpRoutes = require("./routes/otp/otp.route");
-const cors = require("@fastify/cors")
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 (async () => {
 
