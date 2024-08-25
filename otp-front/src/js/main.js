@@ -101,6 +101,9 @@ loginForm.addEventListener("submit", (e) => {
                   input.focus();
                 }
               });
+
+              // start expire timer coutdown
+              setInterval(countdown, 1000);
             });
           } else {
             return response.json().then((errorData) => {
@@ -262,5 +265,29 @@ backButton.addEventListener("click", (e) => {
   otpInputs.forEach((input) => {
     input.value = "";
     checkInputs();
-  })
+  });
 });
+
+// expire time 02:30
+let expireTimeInSeconds = 2 * 60 + 30;
+
+const expireTimerContainer = document.getElementById("expire-timer-container");
+
+const countdown = () => {
+  const minutes = Math.floor(expireTimeInSeconds / 60);
+  const seconds = expireTimeInSeconds % 60;
+
+  expireTimerContainer.innerHTML = ` <span class="text-slate-600"
+                ><span class="text-slate-800" id="expire-timer">${
+                  minutes < 10 ? "0" : ""
+                }${minutes}:${seconds < 10 ? "0" : ""}${seconds}</span>
+                مانده تا ارسال مجدد</span
+              >`;
+
+  if (expireTimeInSeconds <= 0) {
+    clearInterval(countdown);
+    expireTimerContainer.innerHTML = `<button>ارسال مجدد کد تائید</button>`;
+  }
+
+  expireTimeInSeconds--;
+};

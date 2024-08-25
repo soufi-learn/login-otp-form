@@ -867,6 +867,11 @@ h6 {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-slate-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
 .shadow-custom-inset {
   --tw-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
   --tw-shadow-colored: inset 2px 2px 5px var(--tw-shadow-color), inset -5px -5px 10px var(--tw-shadow-color);
