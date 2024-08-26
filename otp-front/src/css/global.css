@@ -42,7 +42,7 @@
   }
 
   input {
-    user-select: none !important
+    user-select: none !important;
   }
 
   h1 {
