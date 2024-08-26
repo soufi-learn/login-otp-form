@@ -72,13 +72,6 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
-
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
@@ -187,11 +180,6 @@ otp-back/build/
 *.log  
 otp-front/logs/  
 otp-back/logs/  
-
-# Environment variables  
-.env  
-otp-front/.env  
-otp-back/.env  
 
 # IDE specific files  
 .vscode/  
