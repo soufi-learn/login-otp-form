@@ -285,9 +285,7 @@ function startCountdown() {
 
     if (expireTimeInSeconds <= 0) {
       clearInterval(countdownInterval); // Stop the countdown when time runs out
-      expireTimerContainer.innerHTML = `<button id='resend-btn'>ارسال مجدد کد تائید</button>`;
-      const resendButton = document.getElementById("resend-btn");
-      resendButton.addEventListener("click", resendCode);
+      expireTimerContainer.innerHTML = `<button id='resend-btn' onclick='resendCode()'>ارسال مجدد کد تائید</button>`;
     }
 
     expireTimeInSeconds--;
