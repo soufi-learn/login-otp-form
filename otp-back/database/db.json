@@ -1,17 +1,1 @@
-{
-  "users": [
-    {
-      "id": "591ec00e-fbe0-4d3c-b43f-g256188d6412",
-      "username": "Soheil",
-      "email": "soheil@gmail.com",
-      "password": "soheil-1382"
-    },
-    {
-      "id": "591ec00e-fbe0-4d3c-b43f-g256188d6411",
-      "username": "Tahsin",
-      "email": "tahsin@gmail.com",
-      "password": "tahsin-1381"
-    }
-  ],
-  "otp": []
-}
+{"users":[{"id":"591ec00e-fbe0-4d3c-b43f-g256188d6412","username":"Soheil","email":"soheil@gmail.com","password":"soheil-1382"},{"id":"591ec00e-fbe0-4d3c-b43f-g256188d6411","username":"Tahsin","email":"tahsin@gmail.com","password":"tahsin-1381"}],"otp":[{"phone":"09023777849","verifyCode":53653,"expireTime":1724698174454},{"phone":"09023777849","verifyCode":63857,"expireTime":1724698223337},{"phone":"09010992332","verifyCode":68666,"expireTime":1724700754578},{"phone":"09012827625","verifyCode":88187,"expireTime":1724700780889},{"phone":"09012821625","verifyCode":99417,"expireTime":1724700801855}]}
