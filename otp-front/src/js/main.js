@@ -12,7 +12,7 @@ const submitButton = $.getElementById("submit-btn");
 const backButton = $.getElementById("back-btn");
 
 // back end base url
-const backendBaseUrl = process.env.baseUrl;
+const backendBaseUrl = "http://localhost:8080";
 
 // Function to convert Persian digits to English digits
 function convertPersianToEnglish(input) {
@@ -108,7 +108,6 @@ loginForm.addEventListener("submit", (e) => {
         })
         // when we encounter error in sending phone number to API
         .catch((error) => {
-          console.log(error);
           phoneError.classList.remove("hidden");
           phoneError.textContent = error;
         });
@@ -272,15 +271,17 @@ const expireTimerContainer = document.getElementById("expire-timer-container");
 // Countdown function for expire timer
 function startCountdown() {
   clearInterval(countdownInterval); // Clear any previous intervals
-  let expireTimeInSeconds = 2 * 60 + 30; // Reset the countdown time if needed
+  let expireTimeInSeconds = 2 * 60 + 30; // Reset the countdown time
 
   countdownInterval = setInterval(() => {
     const minutes = Math.floor(expireTimeInSeconds / 60);
     const seconds = expireTimeInSeconds % 60;
 
-    expireTimerContainer.innerHTML = `<span class="text-slate-600"><span class="text-slate-800" id="expire-timer">${minutes < 10 ? "0" : ""
-      }${minutes}:${seconds < 10 ? "0" : ""
-      }${seconds}</span> مانده تا ارسال مجدد</span>`;
+    expireTimerContainer.innerHTML = `<span class="text-slate-600"><span class="text-slate-800" id="expire-timer">${
+      minutes < 10 ? "0" : ""
+    }${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}</span> مانده تا ارسال مجدد</span>`;
 
     if (expireTimeInSeconds <= 0) {
       clearInterval(countdownInterval); // Stop the countdown when time runs out
@@ -345,7 +346,6 @@ function resendCode() {
     })
     // when we encounter error in sending phone number to API
     .catch((error) => {
-      console.log(error);
       phoneError.classList.remove("hidden");
       phoneError.textContent = error;
     });
