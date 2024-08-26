@@ -183,7 +183,7 @@ otpInputs.forEach((input, index) => {
         input.value = digits[i];
       });
 
-      otpInputs.forEach((input) => input.blur());
+      otpInputs[otpInputs.length - 1].focus();
       checkInputs();
     }
 
@@ -201,7 +201,7 @@ function checkInputs() {
 }
 
 // Submit button event listener
-submitButton.addEventListener("click", () => {
+loginForm.addEventListener("submit", () => {
   if (!submitButton.disabled) {
     const otpValue = Array.from(otpInputs)
       .map((input) => input.value)
