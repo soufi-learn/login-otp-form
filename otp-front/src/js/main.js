@@ -58,7 +58,7 @@ loginForm.addEventListener("submit", (e) => {
     } else if (!isValidPhone) {
       phoneError.textContent = "لطفا یک شماره موبایل معتبر وارد کنید.";
     } else {
-      fetch(`${backendBaseUrl}/otp/send`, {
+      fetch(`${backendBaseUrl}/otp/1send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,7 @@ loginForm.addEventListener("submit", (e) => {
             });
           } else {
             return response.json().then((errorData) => {
-              throw new Error(errorData.message || "An error occurred");
+              throw errorData.message || "مشکلی پیش آمده! لطفا بعدا تلاش کنید";
             });
           }
         })
@@ -225,11 +225,12 @@ loginForm.addEventListener("submit", () => {
           });
         } else {
           return response.json().then((errorData) => {
-            throw new Error(errorData.message || "An error occurred");
+            throw errorData.message || "An error occurred";
           });
         }
       })
       .catch((error) => {
+        console.log(error);
         Toastify({
           text: error,
           duration: 3000,
