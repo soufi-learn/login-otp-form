@@ -44,6 +44,7 @@ let phoneForm = true;
 // submit login form
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
   if (phoneForm) {
     const phoneRegex =
       /^(0|98)?([ ]|-|[()]){0,2}9[0-4|9]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}$/;
@@ -58,7 +59,7 @@ loginForm.addEventListener("submit", (e) => {
     } else if (!isValidPhone) {
       phoneError.textContent = "لطفا یک شماره موبایل معتبر وارد کنید.";
     } else {
-      fetch(`${backendBaseUrl}/otp/1send`, {
+      fetch(`${backendBaseUrl}/otp/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
