@@ -1,5 +1,5 @@
 <h1>OTP Login Project (Frontend & Backend)</h1>
-<img src="./otp-login.gif" alt='project demo'/>
+<img src="./login-otp.gif" alt='project demo'/>
 <hr>
 <h3>Project Features:</h3>
 <ul>
