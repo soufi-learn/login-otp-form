@@ -5,7 +5,7 @@
 <h3>Technologies Used:</h3>
 <ul>
   <li><strong>Frontend:</strong> HTML, CSS, Tailwind CSS, JavaScript</li>
-  <li><strong>Backend:</strong> Node.js</li>
+  <li><strong>Backend:</strong> Node.js, Fastify</li>
 </ul>
 
 <h3>Project Features:</h3>
