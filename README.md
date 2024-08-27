@@ -1,6 +1,11 @@
 <h1>OTP Login Project (Frontend & Backend)</h1>
 <img src="./login-otp.gif" alt='project demo' width='420px'/>
 <hr>
+<h3>Developed Languages:</h3>
+<ul>
+  <li>Frontend: HTML, CSS, Tailwind, JavaScript</li>
+  <li>Backend: Node JS</li>
+</ul>
 <h3>Project Features:</h3>
 <ul>
   <li>full validation phone number in front and back</li>
