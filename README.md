@@ -18,12 +18,12 @@
 </ul>
 
 <h3>How to Run the Project:</h3>
-<ul>
+<ol>
   <li>Download or clone the source code.</li>
   <li>Open the <code>otp-front</code> folder in your IDE or code editor.</li>
   <li>Open the <code>otp-back</code> directory in the terminal, install the packages (<code>npm install</code>), and run the backend (<code>npm run dev</code>).</li>
   <li>Finally, run the <code>otp-front</code> on your localhost.</li>
-</ul>
+</ol>
 
 <h2>Need help running the project?</h2>
 <p>I've created a short video demonstrating all the steps to run this project.<br>
