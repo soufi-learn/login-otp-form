@@ -27,5 +27,5 @@
 
 <h2>Need help running the project?</h2>
 <p>I've created a short video demonstrating all the steps to run this project.<br>
-<a href="https://t.me/soufi_learn">Click here to watch the guide video</a></p>
+<a href="https://t.me/soufi_learn/153">Click here to watch the guide video</a></p>
 <p>جهت فعال کردن بک اند و ران کردن پروژه، روی لینک بالا بزن و ویدیوی راهنما رو ببین</p>
